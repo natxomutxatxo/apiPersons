@@ -1,7 +1,6 @@
 swagger: "2.0"
 info:
   description: "This API manage the information about a person."
-  version: "1.0.0"
   title: "Api People"
 host: "people.gft"
 basePath: "/v1"
