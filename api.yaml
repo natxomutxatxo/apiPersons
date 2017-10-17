@@ -1,0 +1,3 @@
+swagger: "2.0"
+info:
+  description: "This API manage the information about a person."
