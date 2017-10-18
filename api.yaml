@@ -15,7 +15,7 @@ paths:
       - "person"
       summary: "Returns all people"
       description: ""
-      operationId: "getPeople"
+      operationId: "getPersons"
       produces:
       - "application/json"
       responses:
