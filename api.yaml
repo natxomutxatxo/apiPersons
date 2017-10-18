@@ -1,15 +1,35 @@
 swagger: "2.0"
 info:
   description: "This API manage the information about a person."
-  title: "Api People"
-host: "people.gft"
+  title: "Api persons"
+host: "persons.gft"
 basePath: "/v1"
 tags:
 - name: "person"
 schemes:
 - "http"
 paths:
-  /people/{personId}:
+  /persons/:
+    get:
+      tags:
+      - "person"
+      summary: "Returns all people"
+      description: ""
+      operationId: "getPeople"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Person"
+        204:
+            description: "no content"
+        500:
+          description: "internal server error"
+  /persons/{personId}:
     get:
       tags:
       - "person"
@@ -33,23 +53,9 @@ paths:
         400:
           description: "invalid ID"
         404:
-          description: "Person not found"
-  /people/:
-    get:
-      tags:
-      - "person"
-      summary: "Returns all people"
-      description: ""
-      operationId: "getPeople"
-      produces:
-      - "application/json"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Person"
+          description: "person not found"
+        500:
+          description: "internal server error"
 definitions:
   Person:
     type: "object"
@@ -57,6 +63,8 @@ definitions:
     - "id"
     - "name"
     - "last_name"
+    - "phone"
+    - "email"
     properties:
       id:
         type: "integer"
@@ -65,5 +73,14 @@ definitions:
         type: "string"
         format: ""
       last_name:
+        type: "string"
+        format: ""
+      phone:
+        type: "string"
+        format: ""
+      email:
+        type: "string"
+        format: ""
+      address:
         type: "string"
         format: ""
